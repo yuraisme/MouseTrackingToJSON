@@ -73,7 +73,7 @@ class MouseTracking:
             self.count_before_drag = 0
 
         if event.action == winput.WM_MOUSEWHEEL:
-            self.xy_list['wheel'].append([event.position[0], event.position[1], event.time])
+            self.xy_list['wheel'].append([event.position[0], event.position[1], event.additional_data[0], event.time])
 
         if event.action == winput.WM_RBUTTONDOWN:
             self.xy_list['rclick'].append([event.position[0], event.position[1], event.time])
