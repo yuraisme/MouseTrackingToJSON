@@ -19,6 +19,6 @@ _This class helps to record coordinats to JSON object_
               		  'lclick'  : [x,y,time]
               		  'rclick'  : [x,y,time]
               		  'drag'    : [x,y,time]
-              		  'wheel'   : [x,y,time]
+              		  'wheel'   : [x,y,wheel_direction,time]
               		  'mclick'  : [x,y,time]
               		 }_
