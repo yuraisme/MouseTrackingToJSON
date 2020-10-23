@@ -1,24 +1,31 @@
 import winput
 import json
 import time
+from winput.vk_codes import *
 
 list = {}
 
 with open("coords.json", "r") as read_file:
     j = json.load(read_file)
 
-
-
-
 winput.set_mouse_pos(0,0)
 i = 0
-
+click_count = 0
+print(len(j['lclick']))
 
 for xy in j['xy']:
-    print(j['xy'][1][2]-j['xy'][0][2])
+
     if i > 0:
         delay = xy[2] - j['xy'][i-1][2]
+        print(delay)
         time.sleep(delay/1000)
+    
+    if len(j['lclick']) > click_count:
+
+        if xy[2]-100 >= j['lclick'][click_count][2]:
+            winput.click_mouse_button()
+            print(f'L - click! {click_count}')
+            click_count += 1
 
     winput.set_mouse_pos(xy[0], xy[1])
     i+=1
