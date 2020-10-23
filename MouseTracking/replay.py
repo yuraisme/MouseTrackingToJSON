@@ -2,10 +2,15 @@ import winput
 import json
 import time
 from winput.vk_codes import *
+import sys
 
 list = {}
+print(sys.argv[1])
 
-with open("coords.json", "r") as read_file:
+
+
+
+with open(sys.argv[1], "r") as read_file:
     j = json.load(read_file)
 
 winput.set_mouse_pos(0,0)
@@ -29,3 +34,6 @@ for xy in j['xy']:
 
     winput.set_mouse_pos(xy[0], xy[1])
     i+=1
+
+
+print("Done!")
